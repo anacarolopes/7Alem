@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timeDestroy = 1.0f;
+        timeDestroy = 1.5f;
         Destroy(gameObject, timeDestroy);
         damage = 1;
     }
@@ -34,8 +34,10 @@ public class Bullet : MonoBehaviour
             {
                 enemy.DamageEnemy (damage);
             }
+
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+        
     }
    
 

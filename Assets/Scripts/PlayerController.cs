@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerController : MonoBehaviour
 
     public int health;
     public bool invunerable = false;
+    public bool isAlive = true;
 
     private bool grounded;
     private bool jumping;
@@ -32,8 +34,6 @@ public class PlayerController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-        
-        sprite.enable = true;
     }
 
 
@@ -62,22 +62,27 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
 
-        float move = Input.GetAxis("Horizontal");
-
-        anim.SetFloat("speed", Mathf.Abs(move));
-
-        rb2d.velocity = new Vector2(move * maxSpeed, rb2d.velocity.y);
-
-        if ((move > 0f && !sprite.flipX) || (move < 0f && sprite.flipX))
+        if (isAlive)
         {
+
+            float move = Input.GetAxis("Horizontal");
+
+            anim.SetFloat("speed", Mathf.Abs(move));
+
+            rb2d.velocity = new Vector2(move * maxSpeed, rb2d.velocity.y);
+
+            if ((move > 0f && !sprite.flipX) || (move < 0f && sprite.flipX))
+            {
             Flip();
-        }
+            }
 
 
-        if (jumping)
-        {
+            if (jumping)
+            {
             rb2d.AddForce (new Vector2(0f, jumpForce));
             jumping = false;
+            }
+
         }
     }
 
@@ -111,9 +116,9 @@ public class PlayerController : MonoBehaviour
     {
         for(float i = 0f; i < 1f; i += 0.1f)
         {
-            sprite.enable = false;
+            sprite.enabled = false;
             yield return new WaitForSeconds (0.1f);
-            sprite.enable = true;
+            sprite.enabled = true;
             yield return new WaitForSeconds (0.1f);
         }
 
@@ -123,14 +128,25 @@ public class PlayerController : MonoBehaviour
 
     public void DamagePlayer()
     {
-        invunerable = true;
-        health --;
-        StartCoroutine (Damage());
-
-        if (health < 1)
+        if (isAlive)
         {
-            Debug.Log("Morreu");
+            invunerable = true;
+            health --;
+            StartCoroutine (Damage());
+
+            if (health < 1)
+            {
+                isAlive = false;
+                Invoke ("ReloadLevel", 3f);
+            }
+        
         }
+
+    }
+
+    void ReloadLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 }

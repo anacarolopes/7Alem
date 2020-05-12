@@ -17,7 +17,7 @@ public class PlayerTrigger : MonoBehaviour
         {
             if (!player.invunerable)
             {
-                player.Damage();
+                player.DamagePlayer();
             }
         }
     }
