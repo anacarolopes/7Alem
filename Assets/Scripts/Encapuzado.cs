@@ -2,24 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Crow : EnemyController
+public class Encapuzado : EnemyController
 {
     // Start is called before the first frame update
     void Start()
     {
-        health = 2;
+        
     }
 
     // Update is called once per frame
     protected override void Update()
     {
-      base.Update();
+        base.Update();
 
-    if (isMoving)
+        if(isMoving)
         {
-            rb2d.velocity = new Vector2(speed, rb2d.velocity.y);
+            transform.position = Vector3.MoveTowards(transform.position, player.position, Mathf.Abs(speed)*Time.deltaTime);
         }
-
     }
-
 }

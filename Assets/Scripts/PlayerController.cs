@@ -8,12 +8,16 @@ public class PlayerController : MonoBehaviour
     public float maxSpeed;
     public float jumpForce;
 
+    public int health;
+    public bool invunerable = false;
+
     private bool grounded;
     private bool jumping;
 
     private Rigidbody2D rb2d;
     private Animator anim;
-    private SpriteRenderer sprite;
+    
+    public SpriteRenderer sprite;
 
     public Transform groundCheck;
 
@@ -28,6 +32,8 @@ public class PlayerController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        
+        sprite.enable = true;
     }
 
 
@@ -100,5 +106,35 @@ public class PlayerController : MonoBehaviour
             cloneBullet.transform.eulerAngles = new Vector3(0, 0, 180);
         }
     }
+
+    IEnumerator Damage()
+    {
+        for(float i = 0f; i < 1f; i += 0.1f)
+        {
+            sprite.enable = false;
+            yield return new WaitForSeconds (0.1f);
+            sprite.enable = true;
+            yield return new WaitForSeconds (0.1f);
+        }
+
+        invunerable = false;
+
+    }
+
+    public void DamagePlayer()
+    {
+        invunerable = true;
+        health --;
+        StartCoroutine (Damage());
+
+        if (health < 1)
+        {
+            Debug.Log("Morreu");
+        }
+    }
+
 }
+
+
+
 
