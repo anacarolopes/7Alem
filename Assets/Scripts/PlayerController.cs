@@ -144,6 +144,15 @@ public class PlayerController : MonoBehaviour
 
     }
 
+     public void OnTriggerEnter2D (Collider2D other)
+    {
+            if (other.CompareTag("Potion"))
+            {
+                Destroy(other.gameObject);
+            }
+    
+    }
+
     void ReloadLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
