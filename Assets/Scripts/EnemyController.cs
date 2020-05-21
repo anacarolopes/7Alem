@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     protected Transform player;
     protected SpriteRenderer sprite;
     protected bool isMoving = false;
+    private AudioSource soundFx;
 
     void Awake()
     {
@@ -19,6 +20,7 @@ public class EnemyController : MonoBehaviour
         anim = GetComponent<Animator> ();
         sprite = GetComponent<SpriteRenderer> ();
         player = GameObject.Find ("Player").GetComponent<Transform> ();
+        soundFx = GetComponent<AudioSource>();
     }
 
     protected float PlayerDistance()
@@ -48,6 +50,7 @@ public class EnemyController : MonoBehaviour
 
     public void DamageEnemy(int damageBullet)
     {
+        soundFx.Play();
         health -= damageBullet;
         StartCoroutine (Damage());
 

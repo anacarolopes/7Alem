@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public float maxSpeed;
     public float jumpForce;
 
-    public int health = 6;
+    public int health;
     public bool invunerable = false;
     public bool isAlive = true;
 
@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     
     public SpriteRenderer sprite;
     public HudController hud;
+    private AudioSource soundFx;
 
     public Transform groundCheck;
 
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        soundFx = GetComponent<AudioSource>();
     }
 
 
@@ -76,6 +78,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown("1") && spell2 == true)
         {
 			activeSpell = bullet2Object;
+
         }      
 
     }
@@ -169,6 +172,7 @@ public class PlayerController : MonoBehaviour
     {
             if (other.CompareTag("Potion")) 
             {
+                soundFx.Play();
                 Destroy(other.gameObject);
                 hud.EsconderPotion_g();
                 spell2 = true;
