@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     public float maxSpeed;
     public float jumpForce;
 
-    public int health;
+    public int health = 6;
     public bool invunerable = false;
     public bool isAlive = true;
 
@@ -20,14 +21,22 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     
     public SpriteRenderer sprite;
+    public HudController hud;
 
     public Transform groundCheck;
 
     //variaveis do spell
     public Transform bulletSpawn;
     public GameObject bulletObject;
+    public GameObject bullet2Object;
+    private bool spell2;
+
+    private GameObject activeSpell;
+
     public float fireRate;
     private float nextFire;
+	
+    
 
     private void Awake()
     {
@@ -40,7 +49,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        activeSpell = bulletObject;
+        spell2 = false;
     }
 
     // Update is called once per frame
@@ -57,6 +67,17 @@ public class PlayerController : MonoBehaviour
         {
             Fire();
         }
+        
+        if (Input.GetKeyDown("0"))
+        {
+			activeSpell = bulletObject;
+        }
+        
+        if (Input.GetKeyDown("1") && spell2 == true)
+        {
+			activeSpell = bullet2Object;
+        }      
+
     }
 
     void FixedUpdate()
@@ -105,7 +126,7 @@ public class PlayerController : MonoBehaviour
     void Fire()
     {
         nextFire = Time.time + fireRate;
-        GameObject cloneBullet = Instantiate(bulletObject, bulletSpawn.position, bulletSpawn.rotation);
+        GameObject cloneBullet = Instantiate(activeSpell, bulletSpawn.position, bulletSpawn.rotation);
         if (!sprite.flipX)
         {
             cloneBullet.transform.eulerAngles = new Vector3(0, 0, 180);
@@ -116,9 +137,9 @@ public class PlayerController : MonoBehaviour
     {
         for(float i = 0f; i < 1f; i += 0.1f)
         {
-            sprite.enabled = false;
+            sprite.color = Color.green;
             yield return new WaitForSeconds (0.1f);
-            sprite.enabled = true;
+            sprite.color = Color.white;
             yield return new WaitForSeconds (0.1f);
         }
 
@@ -137,7 +158,7 @@ public class PlayerController : MonoBehaviour
             if (health < 1)
             {
                 isAlive = false;
-                Invoke ("ReloadLevel", 3f);
+                Invoke ("ReloadLevel", 2f);
             }
         
         }
@@ -146,11 +167,18 @@ public class PlayerController : MonoBehaviour
 
      public void OnTriggerEnter2D (Collider2D other)
     {
-            if (other.CompareTag("Potion"))
+            if (other.CompareTag("Potion")) 
             {
                 Destroy(other.gameObject);
+                hud.EsconderPotion_g();
+                spell2 = true;
             }
-    
+
+    }
+
+    void OnBecameInvisible() 
+    {
+      Invoke ("ReloadLevel", 1f);
     }
 
     void ReloadLevel()
