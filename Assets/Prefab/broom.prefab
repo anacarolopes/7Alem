@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1734126591407335030}
   - component: {fileID: 6162584726991406281}
+  - component: {fileID: 5422113079910693661}
   m_Layer: 0
   m_Name: broom
   m_TagString: Untagged
@@ -79,3 +80,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5422113079910693661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3653103591980239989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978a8511060313246b8018d5e3c0659c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidade: 3
+  pontoA: {fileID: 0}
+  pontoB: {fileID: 0}
