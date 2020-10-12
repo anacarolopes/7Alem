@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
 
     public Transform groundCheck;
 
+    public Transform myTransform;
+
     //variaveis do spell
     public Transform bulletSpawn;
     public GameObject bulletObject;
@@ -53,6 +55,7 @@ public class PlayerController : MonoBehaviour
     {
         activeSpell = bulletObject;
         spell2 = false;
+        myTransform = transform;
     }
 
     // Update is called once per frame
@@ -97,14 +100,14 @@ public class PlayerController : MonoBehaviour
 
             if ((move > 0f && !sprite.flipX) || (move < 0f && sprite.flipX))
             {
-            Flip();
+                Flip();
             }
 
 
             if (jumping)
             {
-            rb2d.AddForce (new Vector2(0f, jumpForce));
-            jumping = false;
+                rb2d.AddForce (new Vector2(0f, jumpForce));
+                jumping = false;
             }
 
         }
@@ -178,6 +181,26 @@ public class PlayerController : MonoBehaviour
                 spell2 = true;
             }
 
+            if (other.CompareTag ("door"))
+        {
+            SceneManager.LoadScene("Level_2");
+        }
+
+    }
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.transform.tag == "broom")
+        {
+            myTransform.parent = collision.transform;
+        }
+    }
+
+    public void OnCollisionExit2D(Collision2D collision)
+    {
+        if(collision.transform.tag == "broom")
+        {
+            myTransform.parent = null;
+        }
     }
 
     void OnBecameInvisible() 
