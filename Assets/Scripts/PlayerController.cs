@@ -139,7 +139,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    IEnumerator Damage()
+    public IEnumerator Damage()
     {
         for(float i = 0f; i < 1f; i += 0.1f)
         {

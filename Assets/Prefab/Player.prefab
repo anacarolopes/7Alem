@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5783601737295537758}
   - component: {fileID: 5783601737295537757}
   - component: {fileID: 5783601737295537746}
+  - component: {fileID: 465499408878586956}
   - component: {fileID: 5783601737295537747}
   m_Layer: 8
   m_Name: Player
@@ -163,12 +164,28 @@ MonoBehaviour:
   sprite: {fileID: 0}
   hud: {fileID: 0}
   groundCheck: {fileID: 5783601738720442643}
+  myTransform: {fileID: 0}
   bulletSpawn: {fileID: 5783601738631706905}
   bulletObject: {fileID: 220161744494854292, guid: b6ac80dca4e92d4428823ea380622ae9,
     type: 3}
   bullet2Object: {fileID: 2175199322612541563, guid: 66ba976a1f94187449f8322a32fbd15a,
     type: 3}
   fireRate: 0.3
+--- !u!114 &465499408878586956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5783601737295537756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46760d05021858f4da076f4047397673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 6
+  invunerable: 0
+  isAlive: 1
 --- !u!82 &5783601737295537747
 AudioSource:
   m_ObjectHideFlags: 0

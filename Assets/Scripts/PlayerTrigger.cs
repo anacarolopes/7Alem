@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class PlayerTrigger : MonoBehaviour
 {
     private PlayerController player;
-   
+    private DamageBoss playerB;
+      
     void Awake()
     {
         player = GameObject.Find ("Player").GetComponent<PlayerController>();
+        playerB = GameObject.Find ("Player").GetComponent<DamageBoss>();
     }
 
     void OnTriggerEnter2D (Collider2D other)
@@ -22,6 +24,11 @@ public class PlayerTrigger : MonoBehaviour
             }
         }
 
+        if (other.CompareTag ("Boss"))
+        {
+            playerB.TakeDamage();
+            
+        }
          
     }
 

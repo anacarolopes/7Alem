@@ -9,6 +9,7 @@ TagManager:
   - deathPit
   - broom
   - door
+  - Boss
   layers:
   - Default
   - TransparentFX
