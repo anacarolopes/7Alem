@@ -59,7 +59,6 @@ public class EnemyController : MonoBehaviour
             Destroy (gameObject);
         }
     }
-
     IEnumerator Damage()
     {
         sprite.color = Color.red;

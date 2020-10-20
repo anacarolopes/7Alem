@@ -4,24 +4,25 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-	public int maxHealth = 10;
-	public int currentHealth;
-    public Transform player;
-
+	public int attackDamage;
+	public Transform player;
     public Vector3 attackOffset;
     public float attackRange = 5.0f;
     public LayerMask attackMask;
-
 	public bool isFlipped = false;
+	public int maxHealth = 12;
+    public int currentHealth;
+    public bool isAlive = true;
+	protected SpriteRenderer sprite;
 
-    void Start()
+	 void Start()
 	{
 		currentHealth = maxHealth;
 	}
 
 	void Update()
 	{
-		if ()
+	
 	}
 	
 	public void Attack()
@@ -31,10 +32,6 @@ public class Boss : MonoBehaviour
         pos += transform.up * attackOffset.y;
 
         Collider2D colInfo = Physics2D.OverlapCircle(pos, attackRange, attackMask);
-        if (colInfo != null)
-        {
-            colInfo.GetComponent<DamageBoss>().TakeDamage();
-        }
     }
 
 	public void LookAtPlayer()
@@ -55,4 +52,21 @@ public class Boss : MonoBehaviour
 			isFlipped = true;
 		}
 	}
+
+	public void TakeDamage(int damage)
+    {
+		currentHealth -= damage;
+
+        if (currentHealth < 1)
+        {
+            isAlive = false;
+			Destroy (gameObject);
+        }
+    }
+	IEnumerator Damage()
+    {
+        sprite.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        sprite.color = Color.white;
+    }
 }

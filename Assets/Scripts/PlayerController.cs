@@ -171,6 +171,24 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void DamagePlayerBoss(int damage)
+    {
+        if (isAlive)
+        {
+            invunerable = true;
+            health -= damage;
+            StartCoroutine (Damage());
+
+            if (health < 1)
+            {
+                isAlive = false;
+                Invoke ("ReloadLevel", 2f);
+            }
+        
+        }
+
+    }
+
      public void OnTriggerEnter2D (Collider2D other)
     {
             if (other.CompareTag("Potion")) 
