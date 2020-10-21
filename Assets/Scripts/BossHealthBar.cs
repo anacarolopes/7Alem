@@ -12,7 +12,6 @@ public class BossHealthBar : MonoBehaviour
    void Awake()
    {
        slider = GetComponent<Slider>();
-       slider.value = 12;
    }
 
    void Update()

@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public bool invunerable = false;
     public bool isAlive = true;
 
+    public GameObject gameOverPanel;
+
     private bool grounded;
     private bool jumping;
 
@@ -164,7 +166,8 @@ public class PlayerController : MonoBehaviour
             if (health < 1)
             {
                 isAlive = false;
-                Invoke ("ReloadLevel", 2f);
+                gameOverPanel.SetActive (true);
+                Time.timeScale = 0;
             }
         
         }
@@ -182,7 +185,8 @@ public class PlayerController : MonoBehaviour
             if (health < 1)
             {
                 isAlive = false;
-                Invoke ("ReloadLevel", 2f);
+                gameOverPanel.SetActive (true);
+                Time.timeScale = 0;
             }
         
         }
@@ -201,7 +205,7 @@ public class PlayerController : MonoBehaviour
 
             if (other.CompareTag ("door"))
         {
-            SceneManager.LoadScene("Level_2");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
     }
@@ -223,7 +227,8 @@ public class PlayerController : MonoBehaviour
 
     void OnBecameInvisible() 
     {
-      Invoke ("ReloadLevel", 1f);
+      gameOverPanel.SetActive (true);
+      Time.timeScale = 0;
     }
 
     void ReloadLevel()
