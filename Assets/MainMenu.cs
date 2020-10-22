@@ -5,6 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+  private AudioSource soundM;
+   private void Awake()
+    {
+        soundM = GetComponent<AudioSource>();
+    }
+
+  void Start()
+    {
+      soundM.Play();
+    }
   public void PlayGame()
   {
       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

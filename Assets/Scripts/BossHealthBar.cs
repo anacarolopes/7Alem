@@ -26,17 +26,16 @@ public class BossHealthBar : MonoBehaviour
            fillImage.enabled = true;
        }
 
-       float fillValue = bossHealth.currentHealth / bossHealth.maxHealth;
+       slider.value = (float) bossHealth.currentHealth / bossHealth.maxHealth;
        
-       if (fillValue <= slider.maxValue / 3)
+       if (slider.value <= slider.maxValue / 3)
        {
            fillImage.color = Color.yellow;
        }
-       else if (fillValue > slider.maxValue / 3)
+       else if (slider.value > slider.maxValue / 3)
        {
            fillImage.color = Color.red;
        }
 
-       slider.value = fillValue;
    }
 }
