@@ -15,6 +15,7 @@ public class HudController : MonoBehaviour
     public Image two;
     public Image three;
 
+
     public void MostraPotion_g()
     {
         potion_g.gameObject.SetActive(true);
@@ -35,6 +36,21 @@ public class HudController : MonoBehaviour
         one.gameObject.SetActive(true);
         
     }
+    public void EsconderPotion_g1()
+    {
+        potion_g1.gameObject.SetActive(false);
+        potion_e.gameObject.SetActive(true);
+        two.gameObject.SetActive(true);
+        
+    }
+    public void EsconderPotion_g2()
+    {
+        potion_g2.gameObject.SetActive(false);
+        potion_r.gameObject.SetActive(true);
+        three.gameObject.SetActive(true);
+        
+    }
+
     // Start is called before the first frame update
     void Start()
     {

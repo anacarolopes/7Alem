@@ -18,6 +18,7 @@ public class ActBroom : MonoBehaviour
  
     void OnTriggerEnter2D (Collider2D col)
     {
+        if(PlayerController.potion == true)
         renderSprite.GetComponent<SpriteRenderer>().enabled = false;
         spriteRenderer.GetComponent<SpriteRenderer>().enabled = true;
         acionouBroom = true;

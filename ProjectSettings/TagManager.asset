@@ -10,6 +10,8 @@ TagManager:
   - broom
   - door
   - Boss
+  - Potione
+  - Potionr
   layers:
   - Default
   - TransparentFX

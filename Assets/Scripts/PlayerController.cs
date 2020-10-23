@@ -35,11 +35,13 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletObject;
     public GameObject bullet2Object;
     private bool spell2;
+    public static bool potion, potione, potionr;
 
     private GameObject activeSpell;
 
     public float fireRate;
     private float nextFire;
+    
 	
     
 
@@ -166,8 +168,8 @@ public class PlayerController : MonoBehaviour
             if (health < 1)
             {
                 isAlive = false;
-                gameOverPanel.SetActive (true);
                 Time.timeScale = 0;
+                gameOverPanel.SetActive (true);
             }
         
         }
@@ -201,6 +203,23 @@ public class PlayerController : MonoBehaviour
                 Destroy(other.gameObject);
                 hud.EsconderPotion_g();
                 spell2 = true;
+                potion = true;
+            }
+
+            if (other.CompareTag("Potione")) 
+            {
+                soundFx.Play();
+                Destroy(other.gameObject);
+                hud.EsconderPotion_g1();
+                
+            }
+
+            if (other.CompareTag("Potionr")) 
+            {
+                soundFx.Play();
+                Destroy(other.gameObject);
+                hud.EsconderPotion_g2();
+                
             }
 
             if (other.CompareTag ("door"))
