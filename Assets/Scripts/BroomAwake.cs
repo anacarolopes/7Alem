@@ -11,7 +11,7 @@ public class BroomAwake : MonoBehaviour
 
     void Update()
     {
-        if (ActBroom.acionouBroom == true && PlayerController.potion == true)
+        if (ActBroom.acionouBroom == true)
         {
             if (transform.position.x < pontoA.position.x)
             moveDown = true;

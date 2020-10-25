@@ -12,17 +12,14 @@ public class Boss : MonoBehaviour
 	public bool isFlipped = false;
 	public int maxHealth = 12;
     public int currentHealth;
-    public bool isAlive = true;
+    public static bool isAlive = true;
+	 Animator Animator;
 	protected SpriteRenderer sprite;
 
 	 void Start()
 	{
 		currentHealth = maxHealth;
-	}
-
-	void Update()
-	{
-	
+		Animator = gameObject.GetComponent<Animator>();
 	}
 	
 	public void Attack()
@@ -60,13 +57,16 @@ public class Boss : MonoBehaviour
         if (currentHealth < 1)
         {
             isAlive = false;
-			Destroy (gameObject);
         }
     }
-	IEnumerator Damage()
-    {
-        sprite.color = Color.red;
-        yield return new WaitForSeconds(0.1f);
-        sprite.color = Color.white;
-    }
+
+void Update()
+	{
+		 if (isAlive == false)
+        {            
+			Animator.SetBool("IsDead", true);
+			Destroy (gameObject, 3);
+        }
+	}
+
 }

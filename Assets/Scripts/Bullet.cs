@@ -49,6 +49,11 @@ public class Bullet : MonoBehaviour
 
             Destroy(gameObject);
         }
+
+        if (other.CompareTag("gem"))
+        {
+            Destroy(gameObject);
+        }
         
     }
    

@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour
     protected SpriteRenderer sprite;
     protected bool isMoving = false;
     private AudioSource soundFx;
+    public GameObject Tile_32;
 
     void Awake()
     {
@@ -57,6 +58,7 @@ public class EnemyController : MonoBehaviour
         if(health < 1)
         {
             Destroy (gameObject);
+            Tile_32.SetActive (false);
         }
     }
     IEnumerator Damage()

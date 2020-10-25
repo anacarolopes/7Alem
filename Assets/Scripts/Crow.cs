@@ -25,7 +25,6 @@ public class Crow : EnemyController
         {
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
         }
-
     }
 
 }

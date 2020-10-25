@@ -12,6 +12,8 @@ TagManager:
   - Boss
   - Potione
   - Potionr
+  - hud
+  - gem
   layers:
   - Default
   - TransparentFX

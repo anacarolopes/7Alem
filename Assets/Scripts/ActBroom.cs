@@ -18,10 +18,16 @@ public class ActBroom : MonoBehaviour
  
     void OnTriggerEnter2D (Collider2D col)
     {
-        if(PlayerController.potion == true)
+        if(PlayerController.potion == true && PlayerController.potione == true && PlayerController.potionr == true)
+        {
         renderSprite.GetComponent<SpriteRenderer>().enabled = false;
         spriteRenderer.GetComponent<SpriteRenderer>().enabled = true;
         acionouBroom = true;
         botao1.Play();
+        }
+        else
+        {
+            acionouBroom = false;
+        }
     }
 }

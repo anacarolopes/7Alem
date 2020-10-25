@@ -34,11 +34,7 @@ public class PlayerController : MonoBehaviour
     public Transform bulletSpawn;
     public GameObject bulletObject;
     public GameObject bullet2Object;
-    private bool spell2;
     public static bool potion, potione, potionr;
-
-    private GameObject activeSpell;
-
     public float fireRate;
     private float nextFire;
     
@@ -57,8 +53,6 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        activeSpell = bulletObject;
-        spell2 = false;
         myTransform = transform;
     }
 
@@ -75,18 +69,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButton("Fire1") && Time.time > nextFire)
         {
             Fire();
-        }
-        
-        if (Input.GetKeyDown("0"))
-        {
-			activeSpell = bulletObject;
-        }
-        
-        if (Input.GetKeyDown("1") && spell2 == true)
-        {
-			activeSpell = bullet2Object;
-
-        }      
+        }  
 
     }
 
@@ -136,7 +119,7 @@ public class PlayerController : MonoBehaviour
     void Fire()
     {
         nextFire = Time.time + fireRate;
-        GameObject cloneBullet = Instantiate(activeSpell, bulletSpawn.position, bulletSpawn.rotation);
+        GameObject cloneBullet = Instantiate(bulletObject, bulletSpawn.position, bulletSpawn.rotation);
         if (!sprite.flipX)
         {
             cloneBullet.transform.eulerAngles = new Vector3(0, 0, 180);
@@ -202,7 +185,6 @@ public class PlayerController : MonoBehaviour
                 soundFx.Play();
                 Destroy(other.gameObject);
                 hud.EsconderPotion_g();
-                spell2 = true;
                 potion = true;
             }
 
@@ -211,6 +193,7 @@ public class PlayerController : MonoBehaviour
                 soundFx.Play();
                 Destroy(other.gameObject);
                 hud.EsconderPotion_g1();
+                potione = true;
                 
             }
 
@@ -219,6 +202,7 @@ public class PlayerController : MonoBehaviour
                 soundFx.Play();
                 Destroy(other.gameObject);
                 hud.EsconderPotion_g2();
+                potionr = true;
                 
             }
 
