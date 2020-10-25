@@ -42,7 +42,7 @@ public class Bullet : MonoBehaviour
         {
             Boss boss = other.GetComponent<Boss>();
 
-            if(boss != null)
+            if(boss != null && PlayerController.dm1 == true && PlayerController.dm2 == true && PlayerController.dm3 == true)
             {
                 boss.TakeDamage(2);
             }

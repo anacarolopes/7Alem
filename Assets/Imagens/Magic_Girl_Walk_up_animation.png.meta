@@ -1,17 +1,33 @@
 fileFormatVersion: 2
 guid: 9038d97fb545da14cae885f6a9551c20
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Magic_Girl_Walk_up_animation_0
-    21300002: Magic_Girl_Walk_up_animation_1
-    21300004: Magic_Girl_Walk_up_animation_2
-    21300006: Magic_Girl_Walk_up_animation_3
-    21300008: Magic_Girl_Walk_up_animation_4
-    21300010: Magic_Girl_Walk_up_animation_5
-    21300012: Magic_Girl_Walk_up_animation_6
-    21300014: Magic_Girl_Walk_up_animation_7
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Magic_Girl_Walk_up_animation_0
+  - first:
+      213: 21300002
+    second: Magic_Girl_Walk_up_animation_1
+  - first:
+      213: 21300004
+    second: Magic_Girl_Walk_up_animation_2
+  - first:
+      213: 21300006
+    second: Magic_Girl_Walk_up_animation_3
+  - first:
+      213: 21300008
+    second: Magic_Girl_Walk_up_animation_4
+  - first:
+      213: 21300010
+    second: Magic_Girl_Walk_up_animation_5
+  - first:
+      213: 21300012
+    second: Magic_Girl_Walk_up_animation_6
+  - first:
+      213: 21300014
+    second: Magic_Girl_Walk_up_animation_7
   externalObjects: {}
-  serializedVersion: 9
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -65,8 +81,9 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 1
   platformSettings:
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -77,7 +94,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -88,6 +106,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -107,6 +126,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 3880184459a1604409702e7066247da2
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -127,6 +147,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 9533e9bc211f5c4448a1604eb126fc4b
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
@@ -147,6 +168,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 238ece1eb8f96904f94005d759d8c303
+      internalID: 21300004
       vertices: []
       indices: 
       edges: []
@@ -167,6 +189,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 21953df98500942418ae893c10dab8ec
+      internalID: 21300006
       vertices: []
       indices: 
       edges: []
@@ -187,6 +210,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: ce9fa5dfbb81d784584d1e9350b56894
+      internalID: 21300008
       vertices: []
       indices: 
       edges: []
@@ -207,6 +231,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 756da8f32006e01409156d5e5f38ca2a
+      internalID: 21300010
       vertices: []
       indices: 
       edges: []
@@ -227,6 +252,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: f56bad3021faf994e86cea1cbef9f23d
+      internalID: 21300012
       vertices: []
       indices: 
       edges: []
@@ -247,6 +273,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 33895ad0b387c9a40b8dd8f967143e49
+      internalID: 21300014
       vertices: []
       indices: 
       edges: []
@@ -255,10 +282,12 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 48680f56f0a89e74aac7a5b231a3a7b0
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

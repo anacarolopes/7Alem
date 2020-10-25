@@ -14,7 +14,7 @@ public class AtivaPorta2 : MonoBehaviour
    
     void OnTriggerEnter2D (Collider2D col)
     {
-        if(PlayerController.dm1 == true && PlayerController.dm2 == true && PlayerController.dm3 == true)
+        if(Boss.isAlive == false && PlayerController.dm1 == true && PlayerController.dm2 == true && PlayerController.dm3 == true)
         {   
             castledoors.SetActive (true);
             porta.Play();  

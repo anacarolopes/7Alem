@@ -5,16 +5,12 @@ using UnityEngine;
 public class AtivaPotion1 : MonoBehaviour
 {
     public GameObject gemy;
-    void Start ()
+    
+    public void OnTriggerEnter2D (Collider2D other)
     {
-        
-    }
- 
-    void Update()        
-    {  
-        if (Boss.isAlive == false)
-        {
-            gemy.SetActive (true);
-        }        
+            if (other.CompareTag("Boss"))
+            {
+                gemy.SetActive (true);
+            }
     }
 }
