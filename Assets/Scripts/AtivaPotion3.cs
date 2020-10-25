@@ -5,7 +5,7 @@ using UnityEngine;
 public class AtivaPotion3 : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject potion_r;
+    public GameObject gemr;
     private SpriteRenderer renderSprite, spriteRenderer;
     private AudioSource botao1;
     void Start ()
@@ -19,7 +19,7 @@ public class AtivaPotion3 : MonoBehaviour
     {  
         renderSprite.GetComponent<SpriteRenderer>().enabled = false;
         spriteRenderer.GetComponent<SpriteRenderer>().enabled = true;
-        potion_r.SetActive (true);
+        gemr.SetActive (true);
         botao1.Play();        
     }
 }

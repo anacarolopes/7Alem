@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AtivaPorta : MonoBehaviour
+public class AtivaPorta2 : MonoBehaviour
 {
     public GameObject castledoors;
     private AudioSource porta;
@@ -14,7 +14,7 @@ public class AtivaPorta : MonoBehaviour
    
     void OnTriggerEnter2D (Collider2D col)
     {
-        if(PlayerController.gm1 == true && PlayerController.gm2 == true && PlayerController.gm3 == true)
+        if(PlayerController.dm1 == true && PlayerController.dm2 == true && PlayerController.dm3 == true)
         {   
             castledoors.SetActive (true);
             porta.Play();  

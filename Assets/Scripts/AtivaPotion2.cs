@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AtivaPotion2 : MonoBehaviour
 {
-    public GameObject potion_e;
+    public GameObject gemg;
     private SpriteRenderer renderSprite, spriteRenderer;
     private AudioSource botao1;
     void Start ()
@@ -18,7 +18,7 @@ public class AtivaPotion2 : MonoBehaviour
     {  
         renderSprite.GetComponent<SpriteRenderer>().enabled = false;
         spriteRenderer.GetComponent<SpriteRenderer>().enabled = true;
-        potion_e.SetActive (true);
+        gemg.SetActive (true);
         botao1.Play();        
     }
 }

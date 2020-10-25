@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AtivaPotion1 : MonoBehaviour
 {
-    public GameObject potion1;
+    public GameObject gemy;
     void Start ()
     {
         
@@ -14,7 +14,7 @@ public class AtivaPotion1 : MonoBehaviour
     {  
         if (Boss.isAlive == false)
         {
-            potion1.SetActive (true);
+            gemy.SetActive (true);
         }        
     }
 }

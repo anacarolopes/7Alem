@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     
     public SpriteRenderer sprite;
     public HudController hud;
+    public HudController1 hud1;
+    public HudController2 hud2;
     private AudioSource soundFx;
 
     public Transform groundCheck;
@@ -33,8 +35,7 @@ public class PlayerController : MonoBehaviour
     //variaveis do spell
     public Transform bulletSpawn;
     public GameObject bulletObject;
-    public GameObject bullet2Object;
-    public static bool potion, potione, potionr;
+    public static bool potion, potione, potionr, gm1, gm2, gm3, dm1, dm2, dm3;
     public float fireRate;
     private float nextFire;
     
@@ -184,7 +185,7 @@ public class PlayerController : MonoBehaviour
             {
                 soundFx.Play();
                 Destroy(other.gameObject);
-                hud.EsconderPotion_g();
+                hud1.EsconderPotion_g();
                 potion = true;
             }
 
@@ -192,7 +193,7 @@ public class PlayerController : MonoBehaviour
             {
                 soundFx.Play();
                 Destroy(other.gameObject);
-                hud.EsconderPotion_g1();
+                hud1.EsconderPotion_g1();
                 potione = true;
                 
             }
@@ -201,9 +202,59 @@ public class PlayerController : MonoBehaviour
             {
                 soundFx.Play();
                 Destroy(other.gameObject);
-                hud.EsconderPotion_g2();
+                hud1.EsconderPotion_g2();
                 potionr = true;
                 
+            }
+            
+            if (other.CompareTag("gema")) 
+            {
+                soundFx.Play();
+                Destroy(other.gameObject);
+                hud.EsconderGem_g2();
+                gm1 = true;
+            }
+
+            if (other.CompareTag("gemar")) 
+            {
+                soundFx.Play();
+                Destroy(other.gameObject);
+                hud.EsconderGem_g3();
+                gm2 = true;
+                
+            }
+
+            if (other.CompareTag("gemm")) 
+            {
+                soundFx.Play();
+                Destroy(other.gameObject);
+                hud.EsconderGem_g1();
+                gm3 = true;                
+            }
+
+            if (other.CompareTag("gemy")) 
+            {
+                soundFx.Play();
+                Destroy(other.gameObject);
+                hud2.EsconderDiamondg1();
+                dm1 = true;
+            }
+
+            if (other.CompareTag("gemg")) 
+            {
+                soundFx.Play();
+                Destroy(other.gameObject);
+                hud2.EsconderDiamondg2();
+                dm2 = true;
+                
+            }
+
+            if (other.CompareTag("gemr")) 
+            {
+                soundFx.Play();
+                Destroy(other.gameObject);
+                hud2.EsconderDiamondg3();
+                dm3 = true;                
             }
 
             if (other.CompareTag ("door"))

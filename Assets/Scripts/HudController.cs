@@ -5,56 +5,44 @@ using UnityEngine.UI;
 
 public class HudController : MonoBehaviour
 {
-    public Image potion_y;
-    public Image potion_e;
-    public Image potion_r;
-    public Image potion_g;
-    public Image potion_g1;
-    public Image potion_g2;
-    public Image one;
-    public Image two;
-    public Image three;
+    public Image one, two, three, gem_y, gem_b, gem_r, gem_g1, gem_g2, gem_g3;
 
-
-    public void MostraPotion_g()
+    public void MostraGem_g()
     {
-        potion_g.gameObject.SetActive(true);
-        potion_g1.gameObject.SetActive(true);
-        potion_g2.gameObject.SetActive(true);
-        potion_y.gameObject.SetActive(false);
-        potion_e.gameObject.SetActive(false);
-        potion_r.gameObject.SetActive(false);
+        gem_y.gameObject.SetActive(false);
+        gem_b.gameObject.SetActive(false);
+        gem_r.gameObject.SetActive(false);
+        gem_g1.gameObject.SetActive(true);
+        gem_g2.gameObject.SetActive(true);
+        gem_g3.gameObject.SetActive(true);
         one.gameObject.SetActive(false);
         two.gameObject.SetActive(false);
         three.gameObject.SetActive(false);
     }
-
-    public void EsconderPotion_g()
+     public void EsconderGem_g1()
     {
-        potion_g.gameObject.SetActive(false);
-        potion_y.gameObject.SetActive(true);
+        gem_g1.gameObject.SetActive(false);
+        gem_y.gameObject.SetActive(true);
         one.gameObject.SetActive(true);
-        
     }
-    public void EsconderPotion_g1()
+     public void EsconderGem_g2()
     {
-        potion_g1.gameObject.SetActive(false);
-        potion_e.gameObject.SetActive(true);
+        gem_g2.gameObject.SetActive(false);
+        gem_b.gameObject.SetActive(true);
         two.gameObject.SetActive(true);
-        
     }
-    public void EsconderPotion_g2()
+     public void EsconderGem_g3()
     {
-        potion_g2.gameObject.SetActive(false);
-        potion_r.gameObject.SetActive(true);
+        gem_g3.gameObject.SetActive(false);
+        gem_r.gameObject.SetActive(true);
         three.gameObject.SetActive(true);
-        
     }
 
     // Start is called before the first frame update
     void Start()
     {
-       MostraPotion_g();
+       MostraGem_g();
+
     }
 
     // Update is called once per frame
