@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        Time.timeScale = 1;
         rb2d = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
@@ -79,6 +80,7 @@ public class PlayerController : MonoBehaviour
 
         if (isAlive)
         {
+            Time.timeScale = 1;
 
             float move = Input.GetAxis("Horizontal");
 
@@ -145,6 +147,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isAlive)
         {
+            Time.timeScale = 1;
             invunerable = true;
             health --;
             StartCoroutine (Damage());
@@ -164,6 +167,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isAlive)
         {
+            Time.timeScale = 1;
             invunerable = true;
             health -= damage;
             StartCoroutine (Damage());
@@ -283,11 +287,6 @@ public class PlayerController : MonoBehaviour
     {
       gameOverPanel.SetActive (true);
       Time.timeScale = 0;
-    }
-
-    void ReloadLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 }
