@@ -5,9 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Restart : MonoBehaviour
 {
-
-  public bool isPause;   
-    // Start is called before the first frame update
+    
+   public bool isPause;   
     void Awake()
     {
         Time.timeScale = 1;
@@ -33,17 +32,16 @@ public class Restart : MonoBehaviour
         }
         if (Input.GetKey("escape"))
         {
-            SceneManager.LoadScene("Menu");
             Time.timeScale = 1;
             isPause = false;
+            SceneManager.LoadScene("Menu");
         }
 
         if (Input.GetKeyDown (KeyCode.R))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             Time.timeScale = 1;
             isPause = false;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
-
 }

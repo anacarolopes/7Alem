@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public bool invunerable = false;
     public bool isAlive = true;
 
-    public GameObject gameOverPanel;
+    public  GameObject gameOverPanel;
 
     private bool grounded;
     private bool jumping;
@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         Time.timeScale = 1;
+        isAlive = true;
         rb2d = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
@@ -81,7 +82,7 @@ public class PlayerController : MonoBehaviour
         if (isAlive)
         {
             Time.timeScale = 1;
-
+            
             float move = Input.GetAxis("Horizontal");
 
             anim.SetFloat("speed", Mathf.Abs(move));
@@ -148,15 +149,15 @@ public class PlayerController : MonoBehaviour
         if (isAlive)
         {
             Time.timeScale = 1;
+            StartCoroutine (Damage());
             invunerable = true;
             health --;
-            StartCoroutine (Damage());
 
             if (health < 1)
             {
                 isAlive = false;
-                Time.timeScale = 0;
-                gameOverPanel.SetActive (true);
+                OnBecameInvisible();
+                
             }
         
         }
@@ -168,15 +169,15 @@ public class PlayerController : MonoBehaviour
         if (isAlive)
         {
             Time.timeScale = 1;
+            StartCoroutine (Damage());
             invunerable = true;
             health -= damage;
-            StartCoroutine (Damage());
 
             if (health < 1)
             {
                 isAlive = false;
-                gameOverPanel.SetActive (true);
-                Time.timeScale = 0;
+                OnBecameInvisible();
+               
             }
         
         }
@@ -264,6 +265,7 @@ public class PlayerController : MonoBehaviour
             if (other.CompareTag ("door"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            Time.timeScale = 1;
         }
 
     }
@@ -285,8 +287,9 @@ public class PlayerController : MonoBehaviour
 
     void OnBecameInvisible() 
     {
-      gameOverPanel.SetActive (true);
       Time.timeScale = 0;
+      if (gameOverPanel != null)
+      gameOverPanel.SetActive (true);
     }
 
 }

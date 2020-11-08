@@ -24,8 +24,11 @@ public class PlayerTrigger : MonoBehaviour
 
         if (other.CompareTag ("Boss"))
         {
-            player.DamagePlayerBoss(2);
-            
+            if (!player.invunerable)
+            {
+                player.DamagePlayerBoss(2);
+            }
+                       
         }
          
     }

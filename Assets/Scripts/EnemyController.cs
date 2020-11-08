@@ -14,6 +14,8 @@ public class EnemyController : MonoBehaviour
     protected bool isMoving = false;
     private AudioSource soundFx;
     public GameObject Tile_32;
+    public bool colisorInimigo = true;
+    private bool atacando = true, esperar;
 
     void Awake()
     {
@@ -69,3 +71,4 @@ public class EnemyController : MonoBehaviour
     }
 
 }
+
