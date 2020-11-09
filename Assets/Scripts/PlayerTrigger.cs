@@ -32,6 +32,44 @@ public class PlayerTrigger : MonoBehaviour
         }
          
     }
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag ("Enemy") || other.CompareTag ("deathPit"))
+        {
+            if (!player.invunerable)
+            {
+                player.DamagePlayer();
+            }
+        }
 
+        if (other.CompareTag ("Boss"))
+        {
+            if (!player.invunerable)
+            {
+                player.DamagePlayerBoss(2);
+            }
+                       
+        }
+         
+    }
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag ("Enemy") || other.CompareTag ("deathPit"))
+        {
+            if (!player.invunerable)
+            {
+                player.DamagePlayer();
+            }
+        }
 
+        if (other.CompareTag ("Boss"))
+        {
+            if (!player.invunerable)
+            {
+                player.DamagePlayerBoss(2);
+            }
+                       
+        }
+         
+    }
 }

@@ -38,9 +38,6 @@ public class PlayerController : MonoBehaviour
     public static bool potion, potione, potionr, gm1, gm2, gm3, dm1, dm2, dm3;
     public float fireRate;
     private float nextFire;
-    
-	
-    
 
     private void Awake()
     {
@@ -143,7 +140,6 @@ public class PlayerController : MonoBehaviour
         invunerable = false;
 
     }
-
     public void DamagePlayer()
     {
         if (isAlive)
@@ -157,7 +153,6 @@ public class PlayerController : MonoBehaviour
             {
                 isAlive = false;
                 OnBecameInvisible();
-                
             }
         
         }
@@ -177,7 +172,6 @@ public class PlayerController : MonoBehaviour
             {
                 isAlive = false;
                 OnBecameInvisible();
-               
             }
         
         }
